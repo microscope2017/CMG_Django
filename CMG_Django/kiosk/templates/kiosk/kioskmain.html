@@ -1,0 +1,121 @@
+{%load static%}
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+<title>CMG | DJANGO</title>
+</head>
+<body>
+	<div class="selector">
+		<img src="https://www.ruka.fi/sites/default/files/styles/header_image_style/public/subwaylogo_valkpohja_840x340_0.jpg?itok=0g_KFFb8"></img>
+	</div>
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<div class="col-xs-12 col-sm-9">
+				<ul class="nav nav-tabs">
+					<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu" id="menu_tab"> 메뉴 </a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#bread" id="bread_tab">빵 선택</a></li>
+					<li class="nav-item"><a class="nav-link" href="#vegetable" id="vegetable_tab">야채 선택</a></li>
+					<li class="nav-item"><a class="nav-link" href="#source" id="source_tab">소스 선택</a></li>
+				</ul>
+				<form>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade show active" id="menu">
+							
+						</div>
+						<div class="tab-pane fade" id="bread">
+							
+						</div>
+						<div class="tab-pane fade" id="vegetable">
+							
+						</div>
+						<div class="tab-pane fade" id="source">
+							
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a> <a href="#"
+						class="list-group-item">Link</a>
+				</div>
+			</div>
+			<!--/.sidebar-offcanvas-->
+		</div>
+		<!--/row-->
+	</div>
+</body>
+
+<script src="/static/jquery-3.4.1.js"></script>
+<script>
+$(document).ready(function(){
+	$("#menu").html("메뉴");
+});
+$("#menu_tab").click(function(){
+	document.getElementById("menu_tab").className = "nav-link active";
+	document.getElementById("bread_tab").className = "nav-link";
+	document.getElementById("vegetable_tab").className = "nav-link";
+	document.getElementById("source_tab").className = "nav-link";
+	
+	document.getElementById("menu").className = "tab-pane fade show active";
+	document.getElementById("bread").className = "tab-pane fade";
+	document.getElementById("vegetable").className = "tab-pane fade";
+	document.getElementById("source").className = "tab-pane fade";
+	
+	$("#menu").html("메뉴");
+});
+
+$("#bread_tab").click(function(){
+	document.getElementById("menu_tab").className = "nav-link";
+	document.getElementById("bread_tab").className = "nav-link active";
+	document.getElementById("vegetable_tab").className = "nav-link";
+	document.getElementById("source_tab").className = "nav-link";
+
+	document.getElementById("menu").className = "tab-pane fade";
+	document.getElementById("bread").className = "tab-pane fade show active";
+	document.getElementById("vegetable").className = "tab-pane fade";
+	document.getElementById("source").className = "tab-pane fade";
+	
+	$("#bread").html("빠아아앙");
+});
+
+$("#vegetable_tab").click(function(){
+	document.getElementById("menu_tab").className = "nav-link";
+	document.getElementById("bread_tab").className = "nav-link";
+	document.getElementById("vegetable_tab").className = "nav-link active";
+	document.getElementById("source_tab").className = "nav-link";
+
+	document.getElementById("menu").className = "tab-pane fade";
+	document.getElementById("bread").className = "tab-pane fade";
+	document.getElementById("vegetable").className = "tab-pane fade show active";
+	document.getElementById("source").className = "tab-pane fade";
+	
+	$("#vegetable").html("야채");
+});
+
+$("#source_tab").click(function(){
+	document.getElementById("menu_tab").className = "nav-link";
+	document.getElementById("bread_tab").className = "nav-link";
+	document.getElementById("vegetable_tab").className = "nav-link";
+	document.getElementById("source_tab").className = "nav-link active";
+
+	document.getElementById("menu").className = "tab-pane fade";
+	document.getElementById("bread").className = "tab-pane fade";
+	document.getElementById("vegetable").className = "tab-pane fade";
+	document.getElementById("source").className = "tab-pane fade show active";
+	
+	$("#source").html("소스");
+});
+</script>
+</html>
