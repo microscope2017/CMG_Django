@@ -1,4 +1,4 @@
-{%load static%}
+{%load staticfiles%}
 <html>
 <head>
 <meta charset="utf-8">
@@ -21,34 +21,25 @@
 				</ul>
 				<form>
 					<div id="myTabContent" class="tab-content">
-						<div class="tab-pane fade show active" id="menu">
-							
-						</div>
-						<div class="tab-pane fade" id="bread">
-							
-						</div>
-						<div class="tab-pane fade" id="vegetable">
-							
-						</div>
-						<div class="tab-pane fade" id="source">
-							
-						</div>
+						<div class="tab-pane fade show active" id="menu"></div>
+						<div class="tab-pane fade" id="bread"></div>
+						<div class="tab-pane fade" id="vegetable"></div>
+						<div class="tab-pane fade" id="source"></div>
 					</div>
 				</form>
 			</div>
-
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<div class="list-group">
-					<a href="#" class="list-group-item active">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a> <a href="#"
-						class="list-group-item">Link</a>
+					<a href="#" class="list-group-item active">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a> 
+					<a href="#" class="list-group-item">Link</a>
 				</div>
 			</div>
 			<!--/.sidebar-offcanvas-->
@@ -58,64 +49,5 @@
 </body>
 
 <script src="/static/jquery-3.4.1.js"></script>
-<script>
-$(document).ready(function(){
-	$("#menu").html("메뉴");
-});
-$("#menu_tab").click(function(){
-	document.getElementById("menu_tab").className = "nav-link active";
-	document.getElementById("bread_tab").className = "nav-link";
-	document.getElementById("vegetable_tab").className = "nav-link";
-	document.getElementById("source_tab").className = "nav-link";
-	
-	document.getElementById("menu").className = "tab-pane fade show active";
-	document.getElementById("bread").className = "tab-pane fade";
-	document.getElementById("vegetable").className = "tab-pane fade";
-	document.getElementById("source").className = "tab-pane fade";
-	
-	$("#menu").html("메뉴");
-});
-
-$("#bread_tab").click(function(){
-	document.getElementById("menu_tab").className = "nav-link";
-	document.getElementById("bread_tab").className = "nav-link active";
-	document.getElementById("vegetable_tab").className = "nav-link";
-	document.getElementById("source_tab").className = "nav-link";
-
-	document.getElementById("menu").className = "tab-pane fade";
-	document.getElementById("bread").className = "tab-pane fade show active";
-	document.getElementById("vegetable").className = "tab-pane fade";
-	document.getElementById("source").className = "tab-pane fade";
-	
-	$("#bread").html("빠아아앙");
-});
-
-$("#vegetable_tab").click(function(){
-	document.getElementById("menu_tab").className = "nav-link";
-	document.getElementById("bread_tab").className = "nav-link";
-	document.getElementById("vegetable_tab").className = "nav-link active";
-	document.getElementById("source_tab").className = "nav-link";
-
-	document.getElementById("menu").className = "tab-pane fade";
-	document.getElementById("bread").className = "tab-pane fade";
-	document.getElementById("vegetable").className = "tab-pane fade show active";
-	document.getElementById("source").className = "tab-pane fade";
-	
-	$("#vegetable").html("야채");
-});
-
-$("#source_tab").click(function(){
-	document.getElementById("menu_tab").className = "nav-link";
-	document.getElementById("bread_tab").className = "nav-link";
-	document.getElementById("vegetable_tab").className = "nav-link";
-	document.getElementById("source_tab").className = "nav-link active";
-
-	document.getElementById("menu").className = "tab-pane fade";
-	document.getElementById("bread").className = "tab-pane fade";
-	document.getElementById("vegetable").className = "tab-pane fade";
-	document.getElementById("source").className = "tab-pane fade show active";
-	
-	$("#source").html("소스");
-});
-</script>
+<script src="/static/tab.js"></script>
 </html>
