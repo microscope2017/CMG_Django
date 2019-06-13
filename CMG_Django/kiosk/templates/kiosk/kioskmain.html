@@ -12,15 +12,30 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title">주문서</h5>
-	        <button type="button" class="close" onclick="hide()">
+	        <button type="button" class="close" onclick="hide(ordermodal)">
 	        <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <div class="modal-body" id="listAll">
+	      <div class="modal-body" id="listPart"></div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="modal" id="submitmodal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">주문서를 확인해주세요</h5>
+	      </div>
+	      <div class="modal-body" id="listAll"></div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" onclick="doOrder()">주문하기</button>
+	        <button type="button" class="btn btn-secondary" onclick="hide(submitmodal)">돌아가기</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
+	
 	<div class="selector">
 		<img src="https://www.ruka.fi/sites/default/files/styles/header_image_style/public/subwaylogo_valkpohja_840x340_0.jpg?itok=0g_KFFb8"></img>
 	</div>
