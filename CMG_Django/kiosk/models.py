@@ -15,3 +15,9 @@ class Vegetable(models.Model):
 class Source(models.Model):
     name = models.CharField(max_length=50)
     img = models.CharField(max_length=100)
+    
+class Order(models.Model):
+    name = models.CharField(max_length=5)
+    date = models.DateTimeField()
+    temp = models.FloatField(max_length=3)
+    weth = models.CharField(max_length=20)
