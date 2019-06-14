@@ -49,7 +49,6 @@ $("#source_tab").click(function(){
 });
 
 var order_list = [];
-
 var orders="";
 function getMultiList(tab, url){
 	$.getJSON(
@@ -134,7 +133,29 @@ function sub(){
 }
 
 function doOrder(){
-	
+	var m = order_list[0].menu.toString(); 
+	var b = order_list[0].bread.toString();
+	var v = order_list[0].vegetable.toString(); 
+	var s = order_list[0].source.toString();
+	for(var i = 1; i<order_list.length; i++){
+		m+=","+order_list[i].menu.toString();
+		b+=","+order_list[i].bread.toString();
+		v+=","+order_list[i].vegetable.toString();
+		s+=","+order_list[i].source.toString();
+	}
+	$.ajax({
+		url:"getorder",
+		data:{
+			menu: m,
+			bread: b,
+			vegetable: v,
+			source: s			
+		},
+		type:"POST",
+		dataType: "json"
+	});
+	$(submitmodal).hide();
+	location.reload();
 }
 
 function hide(mod){

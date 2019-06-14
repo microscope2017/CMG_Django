@@ -8,4 +8,5 @@ urlpatterns = [
     path('getmenu/', views.getMenu, name='getmenu'),
     path('getvege/', views.getVege, name='getvege'),
     path('getsrc/', views.getSource, name='getsrc'),
+    path('getorder', views.getOrder, name='getorder'),
 ]

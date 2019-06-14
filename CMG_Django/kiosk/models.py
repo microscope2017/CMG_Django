@@ -17,7 +17,7 @@ class Source(models.Model):
     img = models.CharField(max_length=100)
     
 class Order(models.Model):
-    name = models.CharField(max_length=5)
+    name = models.CharField(max_length=50)
     date = models.DateTimeField()
     temp = models.FloatField(max_length=3)
     weth = models.CharField(max_length=20)
