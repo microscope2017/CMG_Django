@@ -35,6 +35,7 @@ def getOrder(request):
     re += request.POST.get('bread').split(',')
     re += request.POST.get('vegetable').split(',')
     re += request.POST.get('source').split(',')
-    for e in re: 
-        Order.objects.create(name=re.pop(), date=datetime.now(), temp=temp.getTemp(), weth=weather.getWeather())
+    for e in re:
+        if e is not '':   
+            Order.objects.create(name=e, date=datetime.now(), temp=temp.getTemp(), weth=weather.getWeather())
     return render(request, 'kiosk/kioskmain.html')

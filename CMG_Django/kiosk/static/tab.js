@@ -50,7 +50,7 @@ $("#source_tab").click(function(){
 
 var order_list = [];
 var orders="";
-function getMultiList(tab, url){
+function getMultiList(tab, url){//야채, 소스 목록 불러오기
 	$.getJSON(
 		url,
 		function(data){
@@ -67,20 +67,21 @@ function getMultiList(tab, url){
 	);
 }
 
-function getList(tab, url){
+function getList(tab, url){//메뉴, 빵 목록 불러오기
 	$.getJSON(
 		url,
 		function(data){
 			var str = "";
 			$.each(data, function(key, val){
-				str+="<input type=radio name="+tab+"_sel value=\""+key+"\">"+key+val+"<br>";
+				if(key=="쉬림프" || key=="허니오트") str+="<input type=radio name="+tab+"_sel value=\""+key+"\"checked>"+key+val+"<br>";
+				else str+="<input type=radio name="+tab+"_sel value=\""+key+"\">"+key+val+"<br>";
 			})
 			$(tab).html(str);
 		}
 	);
 }
 
-function init(){
+function init(){//선택 초기화
 	getList("#menu", "getmenu");
 	getList("#bread", "getbread");
 	getMultiList("#vegetable", "getvege");
