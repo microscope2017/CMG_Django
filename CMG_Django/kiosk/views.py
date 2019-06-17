@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import Bread, Menu, Vegetable, Source, Order
 from django.http.response import HttpResponse
+from .models import Bread, Menu, Vegetable, Source, Order
+from datetime import datetime
+from my_py import weather, temp
 import json
 from django.views.decorators.csrf import csrf_exempt
 
@@ -29,9 +31,10 @@ def getSource(request):
  
 @csrf_exempt   
 def getOrder(request):
-    m = request.POST.get('menu').split(',')
-    b = request.POST.get('bread').split(',')
-    v = request.POST.get('vegetable').split(',')
-    s = request.POST.get('source').split(',')
-    
+    re = request.POST.get('menu').split(',')
+    re += request.POST.get('bread').split(',')
+    re += request.POST.get('vegetable').split(',')
+    re += request.POST.get('source').split(',')
+    for e in re: 
+        Order.objects.create(name=re.pop(), date=datetime.now(), temp=temp.getTemp(), weth=weather.getWeather())
     return render(request, 'kiosk/kioskmain.html')
