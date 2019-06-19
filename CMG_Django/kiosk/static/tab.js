@@ -67,25 +67,36 @@ function getMultiList(tab, url){//야채, 소스 목록 불러오기
 	);
 }
 
-function getList(tab, url){//메뉴, 빵 목록 불러오기
-	$.getJSON(
-		url,
-		function(data){
+function getList(tab, which){//메뉴, 빵 목록 불러오기
+	$.ajax({
+		url:"ingredients",
+		data:{which : which},
+		type:"GET",
+		dataType: "json",
+		success:function(data){
 			var str = "";
 			$.each(data, function(key, val){
-				if(key=="쉬림프" || key=="허니오트") str+="<input type=radio name="+tab+"_sel value=\""+key+"\"checked>"+key+val+"<br>";
-				else str+="<input type=radio name="+tab+"_sel value=\""+key+"\">"+key+val+"<br>";
+				if(tab == "#vegetable"){
+					str+="<input name="+tab+"_sel type=checkbox value=\""+key+"\"checked>"+key+val+"<br>";
+				}else if(tab == "#source"){
+					str+="<input name="+tab+"_sel type=checkbox value=\""+key+"\">"+key+val+"<br>";
+				}else{
+					if(key=="쉬림프" || key=="허니오트") 
+						str+="<input type=radio name="+tab+"_sel value=\""+key+"\"checked>"+key+val+"<br>";
+					else 
+						str+="<input type=radio name="+tab+"_sel value=\""+key+"\">"+key+val+"<br>";
+				}
 			})
 			$(tab).html(str);
 		}
-	);
+	});
 }
 
 function init(){//선택 초기화
-	getList("#menu", "getmenu");
-	getList("#bread", "getbread");
-	getMultiList("#vegetable", "getvege");
-	getMultiList("#source", "getsrc");
+	getList("#menu", "menu");
+	getList("#bread", "bread");
+	getList("#vegetable", "vegetable");
+	getList("#source", "source");
 }
 
 function list(name){

@@ -9,25 +9,17 @@ from django.views.decorators.csrf import csrf_exempt
 def kiosk(request):
     return render(request, 'kiosk/kioskmain.html')
 
-def getMenu(request):
-    get = {}
-    for e in Menu.objects.all(): get[e.name] = e.img
-    return HttpResponse(json.dumps(get), content_type='application/json')
-  
-def getBread(request):
-    get = {}
-    for e in Bread.objects.all(): get[e.name] = e.img
-    return HttpResponse(json.dumps(get), content_type='application/json')
-  
-def getVege(request):
-    get = {}
-    for e in Vegetable.objects.all(): get[e.name] = e.img
-    return HttpResponse(json.dumps(get), content_type='application/json')
-  
-def getSource(request):
-    get = {}
-    for e in Source.objects.all(): get[e.name] = e.img
-    return HttpResponse(json.dumps(get), content_type='application/json')
+def ingredients(request):
+    getData = {}
+    whichone = request.GET.get('which')
+    getqset = []
+    if 'menu' in whichone: getqset = Menu.objects.all()
+    elif 'bread' in whichone: getqset = Bread.objects.all()
+    elif 'vegetable' in whichone: getqset = Vegetable.objects.all()
+    elif 'source' in whichone: getqset = Source.objects.all()
+    for e in getqset: getData[e.name] = e.img
+    print(getqset)
+    return HttpResponse(json.dumps(getData), content_type='application/json')
  
 @csrf_exempt   
 def getOrder(request):
