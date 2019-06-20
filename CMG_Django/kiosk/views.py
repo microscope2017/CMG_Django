@@ -18,7 +18,6 @@ def ingredients(request):
     elif 'vegetable' in whichone: getqset = Vegetable.objects.all()
     elif 'source' in whichone: getqset = Source.objects.all()
     for e in getqset: getData[e.name] = e.img
-    print(getqset)
     return HttpResponse(json.dumps(getData), content_type='application/json')
  
 @csrf_exempt   
@@ -28,6 +27,6 @@ def getOrder(request):
     re += request.POST.get('vegetable').split(',')
     re += request.POST.get('source').split(',')
     for e in re:
-        if e is not '':   
-            Order.objects.create(name=e, date=datetime.now(), temp=temp.getTemp(), weth=weather.getWeather())
+        if e is not None:   
+            Order.objects.create(branch='강남점', name=e, date=datetime.now(), temp=temp.getTemp(), weth=weather.getWeather())
     return render(request, 'kiosk/kioskmain.html')

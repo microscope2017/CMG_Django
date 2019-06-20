@@ -17,6 +17,7 @@ class Source(models.Model):
     img = models.CharField(max_length=100)
     
 class Order(models.Model):
+    branch = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     date = models.DateTimeField()
     temp = models.FloatField(max_length=3)
